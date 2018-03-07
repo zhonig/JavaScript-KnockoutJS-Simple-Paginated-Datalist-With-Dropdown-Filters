@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta id="viewport" name="viewport" content="width=device-width" />
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <link rel="apple-touch-icon" href="images/linux-icon-19.png" />
+        <link rel="icon" type="image/x-icon" href="images/Dakirby309-Simply-Styled-OS-Linux.ico" />
+		<link rel="stylesheet" href="css/style.css" type="text/css" />
+        <title>Simple Evaluation Task for Front-End Engineers</title>
+		<script type="text/javascript" src="js/lib/jquery-3.3.1.js" defer></script>
+		<script type="text/javascript" src="js/lib/knockout-3.4.2.js" defer></script>
+		<script type="text/javascript" src="js/main.js" defer></script>
+	</head>
+	<body>
+		<h2>Simple Evaluation Task for Front-End Engineers</h2>
+		<label>Brands:</label>
+		<select data-bind="options: brands, optionsText: 'Name', value: selectedBrand, optionsCaption: 'Choose Brand...'"></select>
+		<label data-bind="visible: selectedBrand">Campaigns:</label>
+		<select data-bind="visible: selectedBrand, options: campaigns, optionsText: 'Name', value: selectedCampaign, optionsCaption: 'All'"></select>
+		<table>
+			<thead>
+				<tr>
+					<th>Score</th>
+					<th>Url</th>
+					<!--<th>Last Scored Date</th>-->
+				</tr>
+			</thead>
+			<tbody data-bind="foreach: sortedWebPagesByScoreAndUrl">
+				<tr>
+					<td data-bind="text: Score"></td>
+					<td><a target="_blank" data-bind="attr: { href: Url }, text: Url"></a></td>
+					<!--<td data-bind="text: LastScored"></td>-->
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<button data-bind="visible: selectedBrand && currentPage() > 1, click: togglePreviousPage">Previous Page</button>
+			<button data-bind="visible: selectedBrand && ((total() - (currentPage() * limit)) > limit), click: toggleNextPage">Next Page</button>
+		</div>
+		<div>
+			<label data-bind="visible: selectedBrand, text: 'Currently On Page ' + currentPage()"></label>
+		</div>
+	</body>
+</html>
