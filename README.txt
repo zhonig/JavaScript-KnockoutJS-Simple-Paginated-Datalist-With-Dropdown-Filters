@@ -27,3 +27,5 @@ ZH NOTES:
 3) To prevent CORS error on localhost and Google Chrome Browser, paste the following commands into the windows "command prompt":
 	cd C:\Program Files (x86)\Google\Chrome\Application
 	chrome.exe --user-data-dir="C:/Chrome dev session" --disable-web-security
+	
+Live Website: http://zackhonig.com/projects/Simple-Paginated-Datalist-With-Dropdown-Filters
